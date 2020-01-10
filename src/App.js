@@ -3,7 +3,31 @@ import Emoji from './Emoji';
 import ReactFCCtest from 'react-fcctest';
 import GenerateMarkdown from './GenerateMarkdown';
 
-
+const MARKDOWNPLACEHOLDER = `
+  # Header H1 Example
+  
+  ## Header H2 Example
+  
+  [Link Example](https://example.com)
+  
+  * List Item #1
+  * List Item #2
+  
+  \` Inline Code Example \`
+  
+  \`\`\`
+  Block
+  Code
+  Example
+  \`\`\`
+  
+  > Block Quote Example
+  > By A N Other
+  
+  [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Markdown Logo"
+  
+  **End of Markdown Example!**
+  `
 
 
 
@@ -11,14 +35,17 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {textInput: ''};
+    this.state = {textInput: MARKDOWNPLACEHOLDER};
 
     this.handleChange = this.handleChange.bind(this);
+    
   }
 
   handleChange(event) {
     this.setState({textInput: event.target.value});
   }
+
+  
 
   render() {
   return (
@@ -36,10 +63,11 @@ class App extends React.Component {
       <section className="row">
 
         <div className="col">
-          <textarea id="editor" class="form-control border border-dark rounded shadow p-3 mb-5 bg-white" style={{ height: '70vh', resize: 'none' }} placeHolder="default input" />
+          <textarea id="editor" class="form-control border border-dark rounded shadow p-3 mb-5 bg-white" style={{ height: '70vh', resize: 'none' }} 
+          placeHolder="default input" value={this.state.textInput} onChange={this.handleChange}/>
         </div>
         <div id="preview" className="col border rounded border-dark shadow p-3 mb-5 bg-white">
-          <GenerateMarkdown />
+          <GenerateMarkdown textInput={this.state.textInput}/>
         </div>
       </section>
 
