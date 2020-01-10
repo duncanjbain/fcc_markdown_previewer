@@ -1,10 +1,59 @@
 import React from 'react';
 import Emoji from './Emoji';
+import ReactFCCtest from 'react-fcctest';
+import marked from 'marked';
 
+
+
+class GenerateMarkdown extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      markup: MARKDOWNPLACEHOLDER
+    };
+  }
+
+ 
+  
+  getMarkdownText() {
+    var rawMarkup = marked(this.state.markup, {sanitize: true});
+    return { __html: rawMarkup };
+  }
+  render() {
+    return <div dangerouslySetInnerHTML={this.getMarkdownText()} />
+  }
+}
+
+const MARKDOWNPLACEHOLDER = `
+# Header H1 Example
+
+## Header H2 Example
+
+[Link Example](https://example.com)
+
+* List Item #1
+* List Item #2
+
+\` Inline Code Example \`
+
+\`\`\`
+Block
+Code
+Example
+\`\`\`
+
+> Block Quote Example
+> By A N Other
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Markdown Logo"
+
+**End of Markdown Example!**
+`
 
 function App() {
   return (
     <div className="container">
+      <ReactFCCtest />
       <header className="row">
         <div className="col text-center">
           <h1>#Markdown Previewer <br />
@@ -17,10 +66,10 @@ function App() {
       <section className="row">
 
         <div className="col">
-          <textarea id="input" class="form-control border border-dark rounded shadow p-3 mb-5 bg-white" style={{ height: '70vh', resize: 'none' }} placeHolder="default input" />
+          <textarea id="editor" class="form-control border border-dark rounded shadow p-3 mb-5 bg-white" style={{ height: '70vh', resize: 'none' }} placeHolder="default input" />
         </div>
-        <div className="col border rounded border-dark shadow p-3 mb-5 bg-white">
-          <p>Preview Goes Here</p>
+        <div id="preview" className="col border rounded border-dark shadow p-3 mb-5 bg-white">
+          <GenerateMarkdown />
         </div>
       </section>
 
