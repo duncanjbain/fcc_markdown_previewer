@@ -5,7 +5,6 @@ import Emoji from './Emoji';
 function App() {
   return (
     <div className="container">
-
       <header className="row">
         <div className="col text-center">
           <h1>#Markdown Previewer <br />
@@ -27,11 +26,11 @@ function App() {
 
 
       <footer className="row">
-        <div className="col text-center">
-          <p>Created with <Emoji symbol="❤️"/> by <a href="https://twitter.com/duncanbain">Duncan Bain</a></p>
+        <div className="col text-center align-items-center">
+          <p>Created with <Emoji symbol="❤️"/> by <a href="https://twitter.com/duncanbain" target="_none">Duncan Bain</a> </p>
+          <p>View the source on <a href="https://github.com/duncanjbain/fcc_markdown_previewer/" target="_none">Github</a></p>
         </div>
       </footer>
-
     </div>
 
   );
