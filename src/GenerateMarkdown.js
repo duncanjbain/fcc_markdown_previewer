@@ -14,13 +14,13 @@ class GenerateMarkdown extends React.Component {
   
   
     getMarkdownText() {
-      var rawMarkup = marked(this.props.textInput, { sanitize: true });
+      var rawMarkup = marked(this.props.textInput, { sanitize: true, breaks: true });
       return { __html: rawMarkup };
     }
   
     render() {
 
-      return <div dangerouslySetInnerHTML={this.getMarkdownText()} />
+      return <div id="preview" dangerouslySetInnerHTML={this.getMarkdownText()} />
     }
   }
 

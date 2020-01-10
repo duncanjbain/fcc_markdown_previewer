@@ -24,9 +24,10 @@ const MARKDOWNPLACEHOLDER = `
   > Block Quote Example
   > By A N Other
   
-  [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Markdown Logo"
+  ![Image Example](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Example Image Title")
   
-  **End of Markdown Example!**
+  Bold **text** Example
+
   `
 
 
@@ -66,7 +67,7 @@ class App extends React.Component {
           <textarea id="editor" class="form-control border border-dark rounded shadow p-3 mb-5 bg-white" style={{ height: '70vh', resize: 'none' }} 
           placeHolder="default input" value={this.state.textInput} onChange={this.handleChange}/>
         </div>
-        <div id="preview" className="col border rounded border-dark shadow p-3 mb-5 bg-white">
+        <div className="col border rounded border-dark shadow p-3 mb-5 bg-white">
           <GenerateMarkdown textInput={this.state.textInput}/>
         </div>
       </section>
