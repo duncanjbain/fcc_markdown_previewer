@@ -41,7 +41,7 @@ yarn start
 
 * [React](https://reactjs.org/) - The web framework used
 * [Bootstrap](https://getbootstrap.com/) - CSS framework used
-* [Marked.JS](https://marked.js) - Markdown to HTML converter
+* [Marked.JS](https://github.com/markedjs/markedd.js) - Markdown to HTML converter
 
 ## Authors
 
