@@ -1,4 +1,5 @@
 import React from 'react';
+import Emoji from './Emoji';
 
 
 function App() {
@@ -17,9 +18,9 @@ function App() {
       <section className="row">
 
         <div className="col">
-          <textarea id="input" class="form-control" style={{ height: '70vh', resize: 'none' }} placeHolder="default input" />
+          <textarea id="input" class="form-control border border-dark rounded shadow p-3 mb-5 bg-white" style={{ height: '70vh', resize: 'none' }} placeHolder="default input" />
         </div>
-        <div className="col">
+        <div className="col border rounded border-dark shadow p-3 mb-5 bg-white">
           <p>Preview Goes Here</p>
         </div>
       </section>
@@ -27,7 +28,7 @@ function App() {
 
       <footer className="row">
         <div className="col text-center">
-          <p>Footer goes here</p>
+          <p>Created with <Emoji symbol="❤️"/> by <a href="https://twitter.com/duncanbain">Duncan Bain</a></p>
         </div>
       </footer>
 
