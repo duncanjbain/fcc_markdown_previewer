@@ -7,7 +7,20 @@ import GenerateMarkdown from './GenerateMarkdown';
 
 
 
-function App() {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {textInput: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({textInput: event.target.value});
+  }
+
+  render() {
   return (
     <div className="container">
       <ReactFCCtest />
@@ -38,8 +51,8 @@ function App() {
         </div>
       </footer>
     </div>
-
   );
+}
 }
 
 export default App;
